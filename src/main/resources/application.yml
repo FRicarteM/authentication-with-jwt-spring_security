@@ -1,0 +1,28 @@
+spring:
+##Conexão Flyway
+  flyway:
+    schemas: ${schemas}
+
+#Conexão com o DB
+  datasource:
+    url: ${url}
+    username: ${username}
+    password: ${password}
+    driver-class-name: org.postgresql.Driver
+    
+#Mostrar dados SQL    
+  jpa:
+    properties:
+      hibernate:
+        ddl-auto: none
+        show-sql: true
+        format-sql: true
+    open-in-view: false
+        
+#Logging
+logging:
+  level:
+    org:
+      springframework:
+        web: INFO
+        hibernate: INFO
