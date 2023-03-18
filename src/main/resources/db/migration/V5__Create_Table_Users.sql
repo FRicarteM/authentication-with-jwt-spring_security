@@ -1,4 +1,4 @@
-﻿CREATE TABLE users
+CREATE TABLE users
 (
     id bigint NOT NULL DEFAULT nextval('users_id_seq'::regclass),
     user_name character varying(255) UNIQUE DEFAULT NULL,

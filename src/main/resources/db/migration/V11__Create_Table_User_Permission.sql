@@ -1,4 +1,4 @@
-﻿CREATE TABLE user_permission
+CREATE TABLE user_permission
 (
   id bigint NOT NULL DEFAULT nextval('user_permission_id_seq'::regclass),
   id_user bigint NOT NULL,

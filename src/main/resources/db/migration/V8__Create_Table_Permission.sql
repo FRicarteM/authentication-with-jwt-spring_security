@@ -1,4 +1,4 @@
-﻿CREATE TABLE permission
+CREATE TABLE permission
 (
     id bigint NOT NULL DEFAULT nextval('permission_id_seq'::regclass),
     description character varying(255) NOT NULL,
