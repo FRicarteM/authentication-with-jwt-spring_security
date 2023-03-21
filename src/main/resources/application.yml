@@ -4,9 +4,6 @@ security:
       secret-key: 53cr37
       expire-length: 3600000
 spring:
-  flyway:
-    schemas: ${schemas}
-
   datasource:
     url: ${url}
     username: ${username}
@@ -19,8 +16,8 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     properties:
       hibernate:
-        show-sql: true
         format-sql: true
+    show-sql: true
     open-in-view: false
 
 logging:

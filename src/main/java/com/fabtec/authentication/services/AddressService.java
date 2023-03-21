@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 import com.fabtec.authentication.data.vo.AddressVo;
@@ -18,6 +19,8 @@ public class AddressService {
 	@Autowired
 	AddressRepository repository;
 	
+	//@PreAuthorize("hasAuthority('MANAGER')")
+	@PreAuthorize("hasAuthority('COMMON_USER')")
 	public AddressVo findById(Long id){
 		return AddressMapper.entityToVo(repository.findById(id)
 				.orElseThrow(() -> new NotFoundException("The address isn't found")));
@@ -45,7 +48,7 @@ public class AddressService {
 		return address;
 	}
 	
-//	@PreAuthorize("hasAuthority('MANAGER')")
+	
 	public void update(AddressVo address) {
 		try {
 			repository.update(address.getCep(), address.getStreet(), 

@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -19,6 +18,7 @@ import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.fabtec.authentication.data.vo.security.TokenVO;
 import com.fabtec.authentication.exceptions.InvalidJwtAuthenticationException;
+import com.fabtec.authentication.services.UserServices;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.servlet.http.HttpServletRequest;
@@ -33,7 +33,7 @@ public class JwtTokenProvider {
 	private long validityInMilliseconds = 3600000; // 1h
 	
 	@Autowired
-	private UserDetailsService userDetailsService;
+	private UserServices userServices;
 	
 	Algorithm algorithm = null;
 	
@@ -90,7 +90,7 @@ public class JwtTokenProvider {
 	
 	public Authentication getAuthentication(String token) {
 		DecodedJWT decodedJWT = decodedToken(token);
-		UserDetails userDetails = this.userDetailsService
+		UserDetails userDetails = this.userServices
 				.loadUserByUsername(decodedJWT.getSubject());
 		return new UsernamePasswordAuthenticationToken(userDetails, "", userDetails.getAuthorities());
 	}

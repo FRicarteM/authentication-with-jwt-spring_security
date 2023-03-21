@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.fabtec.authentication.data.vo.security.AccountCredentialsVO;
 import com.fabtec.authentication.data.vo.security.TokenVO;
+import com.fabtec.authentication.model.User;
 import com.fabtec.authentication.repositories.UserRepository;
 import com.fabtec.authentication.security.JwtTokenProvider;
 
@@ -28,14 +29,14 @@ public class AuthServices {
 	@SuppressWarnings("rawtypes")
 	public ResponseEntity signin(AccountCredentialsVO data) {
 		try {
-			var username = data.getUsername();
-			var password = data.getPassword();
+			String username = data.getUsername();
+			String password = data.getPassword();
 			authenticationManager.authenticate(
 				new UsernamePasswordAuthenticationToken(username, password));
 			
-			var user = repository.findByUsername(username);
+			User user = repository.findByUsername(username);
 			
-			var tokenResponse = new TokenVO();
+			TokenVO tokenResponse = new TokenVO();
 			if (user != null) {
 				tokenResponse = tokenProvider.createAccessToken(username, user.getRoles());
 			} else {
@@ -49,9 +50,9 @@ public class AuthServices {
 	
 	@SuppressWarnings("rawtypes")
 	public ResponseEntity refreshToken(String username, String refreshToken) {
-		var user = repository.findByUsername(username);
+		User user = repository.findByUsername(username);
 		
-		var tokenResponse = new TokenVO();
+		TokenVO tokenResponse = new TokenVO();
 		if (user != null) {
 			tokenResponse = tokenProvider.refreshToken(refreshToken);
 		} else {
