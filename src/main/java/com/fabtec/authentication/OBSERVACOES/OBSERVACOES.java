@@ -14,6 +14,7 @@
 //
 //exemplo de método para codificar password
 //exemplo classe USER(nomeUser, password)
+//Usando o pbkdf2Encoder
 //Este é um exemplo geral que deve ser melhor adaptado nas devidas classes classe(service, models, controller, mapper).
 //    
 //	public void saveLoginPassword(User user) {
