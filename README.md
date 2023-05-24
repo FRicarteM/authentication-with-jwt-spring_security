@@ -12,4 +12,4 @@
 <br>
 <p>And you can access the project by its docker image or you can fork this project.</p>
 
-[![Docker Hub Repo](https://img.shields.io/docker/pulls/fricarte/attornatus-assessment.svg)](https://hub.docker.com/repository/docker/fricarte/attornatus-assessment)
+[![Docker Hub Repo](https://img.shields.io/docker/pulls/fricarte/authentication-with-jwt-spring-security.svg)](https://hub.docker.com/repository/docker/fricarte/authentication-with-jwt-spring-security)
