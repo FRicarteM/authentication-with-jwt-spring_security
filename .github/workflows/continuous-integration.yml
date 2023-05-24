@@ -45,8 +45,8 @@ jobs:
     
     - name: Push to DockerHub
       run: 
-        docker tag ${{ secrets.DOCKER_USERNAME }}/authentication-with-jwt-spring-security:latest ${{ secrets.DOCKER_USERNAME }}/authentication-with-jwt-spring-security:${{ github.rum_id }}
-        docker push ${{ secrets.DOCKER_USERNAME }}/authentication-with-jwt-spring-security:${{ github.rum_id }}
+        docker tag ${{ secrets.DOCKER_USERNAME }}/authentication-with-jwt-spring-security:latest ${{ secrets.DOCKER_USERNAME }}/authentication-with-jwt-spring-security:${{ github.run_id }}
+        docker push ${{ secrets.DOCKER_USERNAME }}/authentication-with-jwt-spring-security:${{ github.run_id }}
         docker push ${{ secrets.DOCKER_USERNAME }}/authentication-with-jwt-spring-security:latest
     
     
