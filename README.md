@@ -10,5 +10,6 @@
 <br>
 <p>To access the methods http just you import in Postman the file Authentication_With_JWT_SS.postman_collection.json.</p>
 <br>
-<p>And you can access the project by its docker image [![Docker Hub Repo](https://img.shields.io/docker/pulls/fricarte/
-attornatus-assessment.svg)](https://hub.docker.com/repository/docker/fricarte/attornatus-assessment) or you can fork this project.</p>
+<p>And you can access the project by its docker image or you can fork this project.</p>
+
+[![Docker Hub Repo](https://img.shields.io/docker/pulls/fricarte/attornatus-assessment.svg)](https://hub.docker.com/repository/docker/fricarte/attornatus-assessment)
