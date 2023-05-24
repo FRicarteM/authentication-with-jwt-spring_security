@@ -44,7 +44,7 @@ jobs:
       run: docker compose build
     
     - name: Push to DockerHub
-      run: 
+      run: |
         docker tag ${{ secrets.DOCKER_USERNAME }}/authentication-with-jwt-spring-security:latest ${{ secrets.DOCKER_USERNAME }}/authentication-with-jwt-spring-security:${{ github.run_id }}
         docker push ${{ secrets.DOCKER_USERNAME }}/authentication-with-jwt-spring-security:${{ github.run_id }}
         docker push ${{ secrets.DOCKER_USERNAME }}/authentication-with-jwt-spring-security:latest
